@@ -22,7 +22,7 @@ namespace MarpleSolver
                 if (typeof(Solver).IsAssignableFrom(type) && !type.IsAbstract)
                 {
                     // Console.WriteLine($"Registering solver {type.Name}");
-                    ((Solver) Activator.CreateInstance(type))?.Register(container);
+                    ((Solver)Activator.CreateInstance(type))?.Register(container);
                 }
 
             return container;

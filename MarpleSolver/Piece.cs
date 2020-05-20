@@ -11,6 +11,31 @@ namespace MarpleSolver
             "A", "B", "C", "D", "E", "G1", "G2", "G3", "G4", "G5", "B1", "B2", "B3", "B4", "B5", "[]", ">", "O", "*", "+"
         };
 
+        public static Piece A { get; } = new Piece("A");
+        public static Piece B { get; } = new Piece("B");
+        public static Piece C { get; } = new Piece("C");
+        public static Piece D { get; } = new Piece("D");
+        public static Piece E { get; } = new Piece("E");
+
+        public static Piece B1 { get; } = new Piece("B1");
+        public static Piece B2 { get; } = new Piece("B2");
+        public static Piece B3 { get; } = new Piece("B3");
+        public static Piece B4 { get; } = new Piece("B4");
+        public static Piece B5 { get; } = new Piece("B5");
+
+        public static Piece G1 { get; } = new Piece("G1");
+        public static Piece G2 { get; } = new Piece("G2");
+        public static Piece G3 { get; } = new Piece("G3");
+        public static Piece G4 { get; } = new Piece("G4");
+        public static Piece G5 { get; } = new Piece("G5");
+
+        public static Piece Arrow { get; } = new Piece(">");
+        public static Piece Square { get; } = new Piece("[]");
+        public static Piece O { get; } = new Piece("O");
+        public static Piece Star { get; } = new Piece("*");
+        public static Piece Plus { get; } = new Piece("+");
+
+
         private Piece(string value)
         {
             if (!_LegalPieces.Contains(value))

@@ -1,6 +1,6 @@
 ﻿using MarpleSolver.Constraints;
 
-namespace MarpleSolver.Solvers
+namespace MarpleSolver.Solvers.ConstraintSolvers
 {
     public class RemoveOppositeEndPiecesLeftToRightConstraintSolver : LeftToRightConstraintSolver
     {

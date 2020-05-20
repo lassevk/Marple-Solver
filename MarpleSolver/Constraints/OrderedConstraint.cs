@@ -3,6 +3,7 @@
 using DryIoc;
 
 using MarpleSolver.Solvers;
+using MarpleSolver.Solvers.ConstraintSolvers;
 
 namespace MarpleSolver.Constraints
 {
@@ -23,7 +24,7 @@ namespace MarpleSolver.Constraints
 
         protected override void ApplySolvers(Container container, ProblemColumn[] columns, List<string> actions)
         {
-            foreach (ISolver<OrderedConstraint> solver in container.Resolve<IEnumerable<ISolver<OrderedConstraint>>>())
+            foreach (IConstraintSolver<OrderedConstraint> solver in container.Resolve<IEnumerable<IConstraintSolver<OrderedConstraint>>>())
                 if (solver.TryApply(columns, this, out var action))
                     actions.Add(action);
         }

@@ -7,6 +7,7 @@ using System.Text;
 using DryIoc;
 
 using MarpleSolver.Constraints;
+using MarpleSolver.Solvers.GeneralSolvers;
 
 namespace MarpleSolver
 {
@@ -34,7 +35,7 @@ namespace MarpleSolver
 
         public void Solve(Container container)
         {
-            ProblemColumn[] columns = Enumerable.Range(1, 5).Select(_ => new ProblemColumn()).ToArray();
+            ProblemColumn[] columns = Enumerable.Range(1, 5).Select(index => new ProblemColumn($"C{index}")).ToArray();
 
             var more = true;
             while (more)
@@ -50,12 +51,18 @@ namespace MarpleSolver
                         more = true;
                     }
                 }
+
+                foreach (ISolver solver in container.Resolve<IEnumerable<ISolver>>())
+                {
+                    var actions = new List<string>();
+                    if (solver.TryApply(columns, actions))
+                    {
+                        foreach (var action in actions)
+                            Console.WriteLine(action);
+                        more = true;
+                    }
+                }
             }
         }
-    }
-
-    public class ProblemColumn
-    {
-        public List<Piece> Pieces { get; } = Piece.AllPieces().ToList();
     }
 }
